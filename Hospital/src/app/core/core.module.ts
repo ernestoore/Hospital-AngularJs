@@ -25,7 +25,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatButtonModule
   ],
   exports: [MenuComponent]
 })

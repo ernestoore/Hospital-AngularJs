@@ -6,16 +6,19 @@
         <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
             <div fxLayoutAlign="space-between center">
                 <mat-icon>local_hospital</mat-icon>
-                <a routerLink="home">Home</a>
+                <a routerLink="home">Clinica Orellana</a>
             </div>
             <div fxLayout="row" fxLayoutAlign="space-between center">
-                <div fxLayoutAlign="space-between center"> 
+                <div fxLayoutAlign="space-between center" *ngIf="!userlogged">
                     <mat-icon>face</mat-icon>
                     <a routerLink="login">Login</a>
                 </div>
-                <div fxLayoutAlign="space-between center">
+                <div fxLayoutAlign="space-between center" *ngIf="!userlogged" >
                     <mat-icon>account_box</mat-icon>
                     <a routerLink="registro">Registro</a>
+                </div>
+                <div fxLayoutAlign="space-between center" *ngIf="userlogged">
+                  <button mat-raised-button color="primary"  (click)="logout()" >Salir</button>
                 </div>
             </div>
         </mat-toolbar>
