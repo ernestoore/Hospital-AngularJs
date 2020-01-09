@@ -10,9 +10,9 @@ const routes: Routes = [
   {path: "home", component: HomeComponent},
   {path: "login", component: LoginComponent},
   {path: "registro", component: RegistroComponent},
-  {path: "atenciones", loadChildren: () => import("./atenciones/atenciones.module")},
-  {path: "medicos", loadChildren: () => import("./medicos/medicos.module")},
-  {path: "facturacion", loadChildren: () => import("./facturacion/facturacion.module")}
+  {path: "atenciones", loadChildren: () => import("./atenciones/atenciones.module").then(mod => mod.AtencionesModule)},
+  {path: "medicos", loadChildren: () => import("./medicos/medicos.module").then(mod => mod.MedicosModule)},
+  {path: "facturacion", loadChildren: () => import("./facturacion/facturacion.module").then(mod => mod.FacturacionModule)}
 ];
 
 @NgModule({

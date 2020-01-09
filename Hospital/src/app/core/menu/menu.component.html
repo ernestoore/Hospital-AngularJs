@@ -1,27 +1,39 @@
 <mat-sidenav-container>
-    <mat-sidenav mode="side">
-        <h3>Hello from sidenav</h3>
-    </mat-sidenav>
-    <mat-sidenav-content>
-        <mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
-            <div fxLayoutAlign="space-between center">
-                <mat-icon>local_hospital</mat-icon>
-                <a routerLink="home">Clinica Orellana</a>
-            </div>
-            <div fxLayout="row" fxLayoutAlign="space-between center">
-                <div fxLayoutAlign="space-between center" *ngIf="!userlogged">
-                    <mat-icon>face</mat-icon>
-                    <a routerLink="login">Login</a>
-                </div>
-                <div fxLayoutAlign="space-between center" *ngIf="!userlogged" >
-                    <mat-icon>account_box</mat-icon>
-                    <a routerLink="registro">Registro</a>
-                </div>
-                <div fxLayoutAlign="space-between center" *ngIf="userlogged">
-                  <button mat-raised-button color="primary"  (click)="logout()" >Salir</button>
-                </div>
-            </div>
-        </mat-toolbar>
-        <router-outlet></router-outlet>
-    </mat-sidenav-content>
+	<mat-sidenav mode="side">
+		<h3>Hello from sidenav</h3>
+	</mat-sidenav>
+	<mat-sidenav-content>
+		<mat-toolbar color="primary" fxLayout="row" fxLayoutAlign="space-between center">
+			<div fxLayoutAlign="space-between center">
+				<div>
+					<mat-icon>local_hospital</mat-icon>
+					<a routerLink="home">Clinica Orellana</a>
+				</div>
+				<div>
+					<a routerLink="atenciones" *ngIf="userlogged">Atenciones</a>
+				</div>
+				<div>
+					<a routerLink="medicos" *ngIf="userlogged">Medicos</a>
+				</div>
+				<div>
+					<a routerLink="facturacion" *ngIf="userlogged">Facturacion</a>
+				</div>
+
+			</div>
+			<div fxLayout="row" fxLayoutAlign="space-between center">
+				<div fxLayoutAlign="space-between center" *ngIf="!userlogged">
+					<mat-icon>face</mat-icon>
+					<a routerLink="login">Login</a>
+				</div>
+				<div fxLayoutAlign="space-between center" *ngIf="!userlogged">
+					<mat-icon>account_box</mat-icon>
+					<a routerLink="registro">Registro</a>
+				</div>
+				<div fxLayoutAlign="space-between center" *ngIf="userlogged">
+					<button mat-raised-button color="primary"  (click)="logout()" >Salir</button>
+				</div>
+			</div>
+		</mat-toolbar>
+		<router-outlet></router-outlet>
+	</mat-sidenav-content>
 </mat-sidenav-container>
