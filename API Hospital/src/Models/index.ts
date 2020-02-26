@@ -1,0 +1,1 @@
+export {default as modeloUsuario} from "./usuario.model"

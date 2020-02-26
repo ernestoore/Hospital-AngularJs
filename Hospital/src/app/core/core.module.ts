@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import {MatSidenavModule, MatToolbarModule, MatIconModule, MatButtonModule, MatListModule, MatInputModule, MatCardModule} from '@angular/material';
+import {MatSidenavModule,MatRadioModule, MatToolbarModule, MatIconModule, MatButtonModule, MatListModule, MatInputModule, MatCardModule} from '@angular/material';
 import {ReactiveFormsModule} from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
@@ -26,7 +26,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
-    MatButtonModule
+    MatButtonModule,
+    MatRadioModule
   ],
   exports: [MenuComponent]
 })

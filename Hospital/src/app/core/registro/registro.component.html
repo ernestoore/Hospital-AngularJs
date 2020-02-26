@@ -4,7 +4,34 @@
     <mat-card-title>Registro</mat-card-title>
     </mat-card-header>
     <mat-card-content>
-
+      <form fxLayout="column" [formGroup]="grupo">
+        <mat-form-field appearance="standard">
+          <input type="text" placeholder="Ingresar Nombre" formControlName="nombre" name="name" matInput required >
+          <mat-error *ngIf="grupo.get('nombre').hasError('required')">El nombre es necesario</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <input type="text" placeholder="Ingresar Correo" formControlName="correo" name="correo" matInput required >
+          <mat-error *ngIf="grupo.get('correo').hasError('required')">El correo es necesario</mat-error>
+          <mat-error *ngIf="grupo.get('correo').hasError('email')">Colocar formato de email</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <input type="password" placeholder="Contraseña" formControlName="password" name="pass1" matInput required>
+          <mat-error *ngIf="grupo.get('password').hasError('required')">Ingresar Controaseña</mat-error>
+        </mat-form-field>
+        <mat-form-field appearance="standard">
+          <input type="password" placeholder="Repetir Contraseña" formControlName="password1" name="pass2" matInput required>
+          <mat-error *ngIf="grupo.get('password1').hasError('required')">Repetir Contraseña</mat-error>
+        </mat-form-field>
+        <mat-radio-group aria-label="Seleccionar opcion" formControlName="roles" name="correo">
+          <mat-radio-button value="administrador">Administrador</mat-radio-button>
+          <mat-radio-button value="operador">Operador</mat-radio-button>
+        </mat-radio-group>
+        <br>
+        <article>
+          <button (click)="registro()" mat-raised-button color="primary" [disabled]="grupo.invalid">Registrar</button>
+        </article>
+        
+      </form>
     </mat-card-content>
   </mat-card>
 

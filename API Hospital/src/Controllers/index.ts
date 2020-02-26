@@ -1,0 +1,1 @@
+export {default as  usuarioController} from './usuario.controller'

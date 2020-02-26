@@ -5,15 +5,15 @@
     </mat-card-header>
         <mat-card-content>
             <form fxLayout="column" [formGroup]="grupo">
-                <mat-form-field appearance="legacy">
+                <mat-form-field appearance="standard">
                     <input type="text" placeholder="Correo" formControlName="correo" name="correo" matInput required>
                     <mat-error *ngIf="grupo.get('correo').hasError('required')">El correo es necesario</mat-error>
                     <mat-error *ngIf="grupo.get('correo').hasError('email')">Colocar formato de email</mat-error>
                 </mat-form-field>
                 <br>
-                <mat-form-field appearance="legacy">
-                    <input type="password" placeholder="Contraseña" formControlName="pass" name="contrasena" matInput required>
-                    <mat-error *ngIf="grupo.get('pass').hasError('required')">La contraseña es necesaria</mat-error>
+                <mat-form-field appearance="standard">
+                    <input type="password" placeholder="Contraseña" formControlName="password" name="contrasena" matInput required>
+                    <mat-error *ngIf="grupo.get('password').hasError('required')">La contraseña es necesaria</mat-error>
                 </mat-form-field>
                 <br>
                 <article>

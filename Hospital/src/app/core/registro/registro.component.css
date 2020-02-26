@@ -2,3 +2,8 @@ div {
     height: 100vh;
     background-color:grey
 }
+
+
+mat-radio-button{
+    padding: 10px;
+}
