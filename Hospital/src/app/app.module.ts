@@ -8,6 +8,7 @@ import { MedicosModule } from './medicos/medicos.module';
 import { FacturacionModule } from './facturacion/facturacion.module';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { HttpClientModule } from '@angular/common/http';
     FacturacionModule,
     NoopAnimationsModule,
     HttpClientModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

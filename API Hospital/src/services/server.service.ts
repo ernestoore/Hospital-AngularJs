@@ -1,6 +1,6 @@
 import * as http from "http"
 import * as express from "express"
-import { routeUsuario } from "../routes"
+import { routeUsuario, routeMedico } from "../routes"
 import * as bodyParser from "body-parser"
 import * as yenv from "yenv"
 
@@ -18,6 +18,7 @@ const initializeServer = (): Promise<any> => {
         app.use(bodyParser.urlencoded({extended: true}))
 
         app.use("/usuarios", routeUsuario)
+        app.use("/medicos", routeMedico)
         httpServer.listen(env.PORT)
         httpServer.on("listening", () => resolve())
         httpServer.on("error", (error) => reject(error))

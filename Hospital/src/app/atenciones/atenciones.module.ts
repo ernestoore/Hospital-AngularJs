@@ -5,13 +5,15 @@ import { AtencionesRoutingModule } from './atenciones-routing.module';
 import { ListadoComponent } from './listado/listado.component';
 import { NuevoComponent } from './nuevo/nuevo.component';
 import { EdicionComponent } from './edicion/edicion.component';
+import { MatTableModule } from '@angular/material';
 
 
 @NgModule({
   declarations: [ListadoComponent, NuevoComponent, EdicionComponent],
   imports: [
     CommonModule,
-    AtencionesRoutingModule
+    AtencionesRoutingModule,
+    MatTableModule
   ]
 })
 export class AtencionesModule { }

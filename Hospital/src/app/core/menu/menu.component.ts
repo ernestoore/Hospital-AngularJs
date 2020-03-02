@@ -15,7 +15,7 @@ export class MenuComponent implements OnInit {
   ngOnInit() {
     this.userlogged = this.auth.isUserLogged()
 
-    this.auth.onUserChangeStatus.subscribe(
+    this.auth.onStateChange.subscribe(
         (status :boolean) => this.userlogged = status
     )
   }

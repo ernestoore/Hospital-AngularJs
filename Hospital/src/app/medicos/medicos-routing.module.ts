@@ -8,7 +8,7 @@ import { EdicionComponent } from './edicion/edicion.component';
 const routes: Routes = [
   {path: "", component: ListadoComponent},
   {path: "nuevo", component: NuevoComponent},
-  {path: "edicion", component: EdicionComponent}
+  {path: "edicion/:id", component: EdicionComponent}
 ];
 
 @NgModule({

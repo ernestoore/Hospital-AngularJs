@@ -1,1 +1,44 @@
-<p>listado works!</p>
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let medicos"> {{medicos.nombre}} </td>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="apellido">
+        <th mat-header-cell *matHeaderCellDef> Apellido </th>
+        <td mat-cell *matCellDef="let medicos"> {{medicos.apellido}}  </td>
+      </ng-container>
+  
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="especialidad">
+        <th mat-header-cell *matHeaderCellDef> Especialidad </th>
+        <td mat-cell *matCellDef="let medicos"> {{medicos.especialidad}}  </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="experiencia">
+        <th mat-header-cell *matHeaderCellDef> Experiencia </th>
+        <td mat-cell *matCellDef="let medicos"> {{medicos.experiencia}} </td>
+      </ng-container>
+
+       <!-- Symbol Column -->
+       <ng-container matColumnDef="editar">
+        <th mat-header-cell *matHeaderCellDef> Editar </th>
+        <td mat-cell *matCellDef="let medicos"> <button mat-raised-button color="accent" (click)="editarRegistro(medicos._id)">Editar</button> </td>
+      </ng-container>
+
+       <!-- Symbol Column -->
+       <ng-container matColumnDef="eliminar">
+        <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+        <td mat-cell *matCellDef="let medicos"> <button mat-raised-button color="warn" (click)="eliminar(medicos._id)">Eliminar</button> </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  

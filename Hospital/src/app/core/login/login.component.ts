@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AuthServiceService } from '../services/auth-service.service';
+import { Usuario } from 'src/app/modelos/usuario';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit {
    }
 
    login(){
-     this.authService.login()
+     const usuario : Usuario = this.grupo.getRawValue()
+     this.authService.login(usuario)
    }
 
   ngOnInit() {

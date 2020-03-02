@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subject, Observable } from 'rxjs';
 import { Usuario } from '../../modelos/usuario';
@@ -11,31 +11,38 @@ import { map } from 'rxjs/operators';
 export class AuthServiceService {
 
   logueado: boolean
-  onUserChangeStatus: Subject<boolean> = new Subject<boolean>()
+  onStateChange = new EventEmitter()
 
   constructor(private readonly router: Router, private http: HttpClient) { }
 
-  login() {
-    this.onUserChangeStatus.next(true)
-    sessionStorage.setItem("user", "user logged")
-    this.router.navigate(["/home"])
-    this.logueado = true
+  login(usuario: Usuario) {
+
+    this.http.post<Object>("http://localhost:3200/usuarios/login", usuario)
+      .subscribe(
+        (data: any) => {
+          this.router.navigate(["/home"])
+          this.logueado = true
+          sessionStorage.setItem("token", JSON.stringify(data))
+          this.onStateChange.emit(true)
+
+      })
   }
 
   logout() {
-    this.onUserChangeStatus.next(false)
     sessionStorage.clear()
     this.logueado = false;
     this.router.navigate(["/login"])
+    this.onStateChange.emit(false)
+
   }
 
   isUserLogged() {
-    if (this.logueado || sessionStorage.getItem("user")) {
+    if (this.logueado || sessionStorage.getItem("token")) {
       return true
     } else {
       return false
     }
-  }
+  } 
 
   insert(usuario: Usuario): Observable<{message: string}>{
     return this.http.post<{message: string}>("http://localhost:3200/usuarios", usuario)
