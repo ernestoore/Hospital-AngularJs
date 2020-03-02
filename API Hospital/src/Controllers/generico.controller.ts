@@ -36,7 +36,6 @@ class genericoController{
         const body = req.body
 
        await this.modelo.findOneAndUpdate({_id}, body)
-
         res.send("registro actualizado")
     }
 

@@ -23,24 +23,19 @@ export class MedicosService {
   }
 
   editar(id: string){
-
-    /* this.listar().subscribe((data: any[])=> 
-    {
-      this.lista.push(...data)
-      console.log(this.lista)
-    }) 
-    return this.medico = this.lista.filter((el: any) => {el._id == id})[0] */
     return this.getMedicoById(id)
   }
 
   getMedicoById(id: string): Observable<Medico> {
-    return this.http.get<Medico>("http://localhost:3200/medicos/"+ id);
+    return this.http.get<Medico>("http://localhost:3200/medicos/"+ id)
   }
 
-  
+  editarRegistro(id: string, medico: Medico){
+    return this.http.put("http://localhost:3200/medicos/"+ id, medico, {responseType: 'text' })
+  }
 
-  eliminar(id){
-
+  eliminarRegistro(id: string){
+    return this.http.delete("http://localhost:3200/medicos/"+ id, {responseType: 'text' })
   }
 
 }

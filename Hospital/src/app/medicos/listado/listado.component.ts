@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ɵɵcontainerRefreshEnd } from '@angular/core';
 import { MatTableDataSource, MatPaginator } from '@angular/material';
 import {Medico} from '../../modelos/medico';
 import { MedicosService } from '../medicos.service';
@@ -29,7 +29,11 @@ export class ListadoComponent implements OnInit {
   }
 
   eliminar(id: string){
-    this.medicoService.eliminar(id)
+    this.medicoService.eliminarRegistro(id)
+    .subscribe(
+      data => this.dataSource = new MedicoDataSource(this.medicoService),
+      error => console.log(error)
+    )
   }
 }
 

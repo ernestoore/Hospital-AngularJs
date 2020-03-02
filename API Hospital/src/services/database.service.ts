@@ -9,7 +9,8 @@ const initializeDatabase = async () => {
             keepAlive: true,
             useNewUrlParser: true,
             useCreateIndex: true,
-            useUnifiedTopology: true
+            useUnifiedTopology: true,
+            useFindAndModify: false
         })
 
         mongoose.connection.on("connected", () => {
