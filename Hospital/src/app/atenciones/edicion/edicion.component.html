@@ -1,1 +1,37 @@
-<p>edicion works!</p>
+<div fxLayout fxLayoutAlign="center center">
+    <mat-card fxFlex="500px" fxFlex.xs="320px" class="mat-elevation-z10">
+      <mat-card-header>
+      <mat-card-title>Edicion</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form fxLayout="column" [formGroup]="grupo">
+          <mat-form-field appearance="standard" style="display:none;">
+            <input type="text"  placeholder="Id" formControlName="_id" name="id" matInput required >
+          </mat-form-field>
+          <mat-form-field appearance="standard">
+            <input type="text" placeholder="Ingresar nombre del paciente" formControlName="paciente" name="paciente" matInput required >
+            <mat-error *ngIf="grupo.get('paciente').hasError('required')">El nombre del paciente es necesario</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Elegir medico</mat-label>
+            <mat-select matFormFieldControl="medico" name="medico" required >
+              <mat-option *ngFor="let item of listamedicos" [value]="item.value">{{item}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+          <mat-radio-group aria-label="Seleccionar opción" formControlName="seguro" name="seguro">
+            <mat-radio-button value="Si">Si</mat-radio-button>
+            <mat-radio-button value="No">No</mat-radio-button>
+          </mat-radio-group>
+          
+          <br>
+          <article>
+            <button (click)="editar()" mat-raised-button color="primary" [disabled]="grupo.invalid">Guardar</button>
+            <button (click)="cancelar()" mat-raised-button color="warn" >Cancelar</button>
+          </article>
+          
+        </form>
+      </mat-card-content>
+    </mat-card>
+  
+  </div>
+  
