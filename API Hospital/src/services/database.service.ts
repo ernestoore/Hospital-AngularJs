@@ -17,6 +17,7 @@ const initializeDatabase = async () => {
             console.log("connected to DB")
             require("../Models/usuario.model")
             require("../Models/medicos.model")
+            require("../Models/atencion.model")
             resolve()
             
         })

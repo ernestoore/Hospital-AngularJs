@@ -26,6 +26,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ReactiveFormsModule,
     FlexLayoutModule
   ],
-  providers: [MedicosService  ]
+  providers: [MedicosService]
 })
 export class MedicosModule { }

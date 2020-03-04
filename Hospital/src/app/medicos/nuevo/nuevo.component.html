@@ -1,1 +1,35 @@
-<p>nuevo works!</p>
+<div fxLayout fxLayoutAlign="center center">
+    <mat-card fxFlex="500px" fxFlex.xs="320px" class="mat-elevation-z10">
+      <mat-card-header>
+      <mat-card-title>Nuevo Medico</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form fxLayout="column" [formGroup]="grupo">
+          <mat-form-field appearance="standard">
+            <input type="text" placeholder="Ingresar Nombre" formControlName="nombre" name="name" matInput required >
+            <mat-error *ngIf="grupo.get('nombre').hasError('required')">El nombre es necesario</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="standard">
+            <input type="text" placeholder="Ingresar Apellido" formControlName="apellido" name="apellido" matInput required >
+            <mat-error *ngIf="grupo.get('apellido').hasError('required')">El apellido es necesario</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="standard">
+            <input type="text" placeholder="Especialidad" formControlName="especialidad" name="especiality" matInput required>
+            <mat-error *ngIf="grupo.get('especialidad').hasError('required')">Ingresar especialidad</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="standard">
+            <input type="text" placeholder="Años de experiencia" formControlName="experiencia" name="experience" matInput required>
+            <mat-error *ngIf="grupo.get('experiencia').hasError('required')">Ingresar años de experiencia</mat-error>
+          </mat-form-field>
+          <br>
+          <article>
+            <button (click)="Agregar()" mat-raised-button color="primary" [disabled]="grupo.invalid">Agregar Medico</button>
+          </article>
+          
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+
+   <h3>Nuevo Works</h3>

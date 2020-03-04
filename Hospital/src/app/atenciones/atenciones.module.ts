@@ -5,7 +5,7 @@ import { AtencionesRoutingModule } from './atenciones-routing.module';
 import { ListadoComponent } from './listado/listado.component';
 import { NuevoComponent } from './nuevo/nuevo.component';
 import { EdicionComponent } from './edicion/edicion.component';
-import { MatTableModule } from '@angular/material';
+import { MatTableModule, MatPaginatorModule, MatButtonModule } from '@angular/material';
 
 
 @NgModule({
@@ -13,7 +13,9 @@ import { MatTableModule } from '@angular/material';
   imports: [
     CommonModule,
     AtencionesRoutingModule,
-    MatTableModule
+    MatTableModule,
+    MatPaginatorModule,
+    MatButtonModule
   ]
 })
 export class AtencionesModule { }

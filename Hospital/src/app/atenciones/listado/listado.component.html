@@ -1,1 +1,56 @@
-<p>listado works!</p>
+<div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource">
+  
+      <!-- Name Column -->
+      <ng-container matColumnDef="paciente">
+        <th mat-header-cell *matHeaderCellDef> Paciente </th>
+        <td mat-cell *matCellDef="let atencion"> {{atencion.paciente}} </td>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="medico">
+        <th mat-header-cell *matHeaderCellDef> Medico </th>
+        <td mat-cell *matCellDef="let atencion"> {{atencion.medico}}  </td>
+      </ng-container>
+  
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="especialidad">
+        <th mat-header-cell *matHeaderCellDef> Especialidad </th>
+        <td mat-cell *matCellDef="let atencion"> {{atencion.especialidad}}  </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="tipo">
+        <th mat-header-cell *matHeaderCellDef> Tipo </th>
+        <td mat-cell *matCellDef="let atencion"> {{atencion.tipo}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="seguro">
+        <th mat-header-cell *matHeaderCellDef> Seguro </th>
+        <td mat-cell *matCellDef="let atencion"> {{atencion.seguro}} </td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="fecha">
+        <th mat-header-cell *matHeaderCellDef> Fecha </th>
+        <td mat-cell *matCellDef="let atencion"> {{atencion.fecha}} </td>
+      </ng-container>
+
+       <!-- Symbol Column -->
+       <ng-container matColumnDef="editar">
+        <th mat-header-cell *matHeaderCellDef> Editar </th>
+        <td mat-cell *matCellDef="let atencion"> <button mat-raised-button color="accent" (click)="editarAtencion(atencion._id)">Editar</button> </td>
+      </ng-container>
+
+       <!-- Symbol Column -->
+       <ng-container matColumnDef="eliminar">
+        <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+        <td mat-cell *matCellDef="let atencion"> <button mat-raised-button color="warn" (click)="eliminarAtencion(atencion._id)">Eliminar</button> </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  

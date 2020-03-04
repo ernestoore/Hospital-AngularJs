@@ -10,12 +10,11 @@ import { Router } from '@angular/router';
 export class MedicosService {
   lista: Array<{}> = []
   onListaActualizada = new Subject()
-  medico: Medico
 
   constructor(private http: HttpClient, private router: Router) { }
 
-  insert(medico: Medico): Observable<{message: string}>{
-    return this.http.post<{message: string}>("http://localhost:3200/medicos", medico)
+  insert(medico: Medico){
+    return this.http.post("http://localhost:3200/medicos", medico, {responseType: 'text' })
   }
 
   listar() : Observable<Medico[]>{
