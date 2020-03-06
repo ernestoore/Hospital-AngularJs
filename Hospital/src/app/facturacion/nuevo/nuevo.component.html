@@ -1,1 +1,41 @@
-<p>nuevo works!</p>
+<div fxLayout fxLayoutAlign="center center">
+    <mat-card fxFlex="500px" fxFlex.xs="320px" class="mat-elevation-z10">
+      <mat-card-header>
+      <mat-card-title>Crear nueva factura</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form fxLayout="column" [formGroup]="grupo">
+            <mat-form-field appearance="standard">
+                <mat-label>Elegir paciente</mat-label>
+                <mat-select matFormFieldControl="paciente" formControlName="paciente" name="paciente" [(ngModel)]="pacienteElegido" required (selectionChange)="selectionChange(pacienteElegido)">
+                  <mat-option *ngFor="let item of listaPacientes" [value]="item">{{item}}</mat-option>
+                  <mat-error *ngIf="grupo.get('paciente').hasError('required')">El paciente es necesario</mat-error>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field appearance="standard">
+                <mat-label>Medico</mat-label>
+                <input type="text" placeholder="Medico" [(ngModel)]="medico" formControlName="medico" name="medico" matInput required >
+              </mat-form-field>
+              <mat-form-field appearance="standard">
+                <mat-label>Costo S/.</mat-label>
+                <input type="text" placeholder="costo" [(ngModel)]="costo" formControlName="costo" name="costo" matInput required >
+              </mat-form-field>
+              <mat-form-field>
+                <mat-label>Elegir fecha de atencion</mat-label>
+                <input matInput [matDatepicker]="picker" formControlName="fecha" name="fecha">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="grupo.get('fecha').hasError('required')">La fecha de atencion es necesaria</mat-error>
+              </mat-form-field>
+          <br>
+          <article>
+            <button (click)="agregar()" mat-raised-button color="primary" [disabled]="grupo.invalid">Crear Atencion</button>
+            <button (click)="cancelar()" mat-raised-button color="warn" >Cancelar</button>
+          </article>
+          
+        </form>
+      </mat-card-content>
+    </mat-card>
+  
+  </div>
+  

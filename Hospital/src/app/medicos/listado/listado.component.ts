@@ -35,6 +35,11 @@ export class ListadoComponent implements OnInit {
       error => console.log(error)
     )
   }
+
+  Agregar(){
+    this.router.navigate(['/medicos','nuevo'])
+  }
+
 }
 
 export class MedicoDataSource extends DataSource<any> {

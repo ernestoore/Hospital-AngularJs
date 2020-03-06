@@ -5,7 +5,7 @@ import { AtencionesRoutingModule } from './atenciones-routing.module';
 import { ListadoComponent } from './listado/listado.component';
 import { NuevoComponent } from './nuevo/nuevo.component';
 import { EdicionComponent } from './edicion/edicion.component';
-import { MatTableModule, MatPaginatorModule, MatButtonModule, MatInputModule, MatFormFieldModule, MatCardModule, MatRadioModule, MatSelectModule } from '@angular/material';
+import { MatTableModule, MatPaginatorModule, MatButtonModule, MatInputModule, MatFormFieldModule, MatCardModule, MatRadioModule, MatSelectModule, MatDatepickerModule, MatNativeDateModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 
@@ -24,7 +24,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatInputModule,
     ReactiveFormsModule,
     MatRadioModule,
-    MatSelectModule
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ]
 })
 export class AtencionesModule { }

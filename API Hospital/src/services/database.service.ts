@@ -18,6 +18,7 @@ const initializeDatabase = async () => {
             require("../Models/usuario.model")
             require("../Models/medicos.model")
             require("../Models/atencion.model")
+            require("../Models/factura.model")
             resolve()
             
         })

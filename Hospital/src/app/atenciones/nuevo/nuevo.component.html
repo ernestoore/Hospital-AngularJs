@@ -1,1 +1,51 @@
-<p>nuevo works!</p>
+<div fxLayout fxLayoutAlign="center center">
+    <mat-card fxFlex="500px" fxFlex.xs="320px" class="mat-elevation-z10">
+      <mat-card-header>
+      <mat-card-title>Crear nueva atención</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <form fxLayout="column" [formGroup]="grupo">
+          <mat-form-field appearance="standard">
+            <input type="text" placeholder="Ingresar nombre completo del paciente" formControlName="paciente" name="paciente" matInput required >
+            <mat-error *ngIf="grupo.get('paciente').hasError('required')">El nombre del paciente es necesario</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="standard">
+            <mat-label>Elegir medico</mat-label>
+            <mat-select matFormFieldControl="medico" formControlName="medico" name="medico" [(ngModel)]="medicoElegido" required (selectionChange)="selectionChange(medicoElegido)">
+              <mat-option *ngFor="let item of listaMedicos" [value]="item">{{item}}</mat-option>
+              <mat-error *ngIf="grupo.get('medico').hasError('required')">El medico es necesario</mat-error>
+            </mat-select>
+          </mat-form-field>
+          <mat-form-field appearance="standard">
+            <mat-label>Especialidad</mat-label>
+            <input type="text" placeholder="Especialidad" [(ngModel)]="especialidad" formControlName="especialidad" name="especialidad" matInput required >
+          </mat-form-field>
+          <mat-radio-group aria-label="Seleccionar opción" formControlName="seguro" name="seguro">
+            <mat-label>¿Cuenta con seguro?</mat-label>
+            <mat-radio-button value="Si">Si</mat-radio-button>
+            <mat-radio-button value="No">No</mat-radio-button>
+          </mat-radio-group>
+          <mat-form-field appearance="standard">
+            <mat-label>Ingresar tipo de atencion (Emergencia/Urgencia):</mat-label>
+            <input type="text" placeholder="Tipo de atencion" formControlName="tipo" name="tipo" matInput required >
+            <mat-error *ngIf="grupo.get('tipo').hasError('required')">El tipo de atencion es necesaria</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <mat-label>Elegir fecha de atencion</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="fecha" name="fecha">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="grupo.get('fecha').hasError('required')">La fecha de atencion es necesaria</mat-error>
+          </mat-form-field>
+          <br>
+          <article>
+            <button (click)="agregar()" mat-raised-button color="primary" [disabled]="grupo.invalid">Crear Atencion</button>
+            <button (click)="cancelar()" mat-raised-button color="warn" >Cancelar</button>
+          </article>
+          
+        </form>
+      </mat-card-content>
+    </mat-card>
+  
+  </div>
+  
