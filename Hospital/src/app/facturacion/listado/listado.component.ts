@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class ListadoComponent implements OnInit {
 
   displayedColumns: string[] = ['_id', 'paciente', 'medico', 'costo', 'fecha', 'editar', 'eliminar'];
-  dataSource = new MedicoDataSource(this.facturaService)
+  dataSource = new FacturaDataSource(this.facturaService)
 
   constructor(private router: Router, private facturaService: FacturacionService ) { }
 
@@ -25,10 +25,22 @@ export class ListadoComponent implements OnInit {
     this.router.navigate(['/facturacion','nuevo'])
   }
 
+  editarRegistro(id){
+    this.router.navigate(['/facturacion','edicion', id])
+  }
+
+  eliminar(id){
+    this.facturaService.eliminarRegistro(id)
+      .subscribe(
+        data => this.dataSource = new FacturaDataSource(this.facturaService),
+        error => console.log(error)
+      )
+  }
+
 }
 
 
-export class MedicoDataSource extends DataSource<any> {
+export class FacturaDataSource extends DataSource<any> {
   constructor(private facturaService: FacturacionService) {
     super();
   }
